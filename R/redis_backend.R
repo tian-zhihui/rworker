@@ -62,7 +62,8 @@ RedisBackend <- R6::R6Class(
                        result=res_data,
                        task_id=id,
                        traceback=msg$errors,
-                       children=NULL)
+                       children=[],
+                       date_done=Sys.time())
             }
             msg = jsonlite::toJSON(msg, auto_unbox=TRUE, null='null')
             key = glue::glue('celery-task-meta-{id}')
