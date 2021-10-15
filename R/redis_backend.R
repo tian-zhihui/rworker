@@ -62,7 +62,7 @@ RedisBackend <- R6::R6Class(
                        result=res_data,
                        task_id=id,
                        traceback=msg$errors,
-                       children=c(),
+                       children=msg$errors,
                        date_done=Sys.time())
             }
             msg = jsonlite::toJSON(msg, auto_unbox=TRUE, null='null')
